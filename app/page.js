@@ -1,5 +1,9 @@
-import Image from "next/image";
+import HeroSection from "./components/landing/HeroSection";
 
 export default function Home() {
-  return <div>Hello i am from khana khazana</div>;
+  return (
+    <section class="container">
+      <HeroSection />
+    </section>
+  );
 }
