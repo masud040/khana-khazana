@@ -10,42 +10,36 @@ const recipeSchema = new Schema({
     type: String,
   },
   author: {
-    required: true,
     type: String,
-  },
-  activeTime: {
     required: true,
-    type: String,
   },
-  totalTime: {
-    required: true,
-    type: String,
-  },
+  activeTime: String,
+  totalTime: String,
   thumbnail: {
     required: true,
     type: String,
   },
   image: {
-    required: true,
     type: String,
+    required: true,
   },
   category: {
-    required: true,
     type: String,
+    required: true,
   },
   serves: {
-    type: String,
+    type: Number,
   },
   rating: {
+    type: Number,
     required: true,
-    type: String,
   },
   steps: {
     type: Array,
   },
 });
 
-const recipesModel =
-  mongoose.models?.recipe ?? mongoose.model("recipes", recipeSchema);
+const RecipesModel =
+  mongoose?.models.recipes ?? mongoose.model("recipes", recipeSchema);
 
-export { recipesModel };
+export default RecipesModel;

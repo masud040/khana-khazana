@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import connectMongo from "../services/mongo";
 import Navbar from "./components/shared/Navbar";
 import "./globals.css";
 
@@ -9,7 +10,9 @@ export const metadata = {
   description: "This page is created for sales foods",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const mongoConnection = await connectMongo();
+
   return (
     <html lang="en">
       <body className={inter.className}>
