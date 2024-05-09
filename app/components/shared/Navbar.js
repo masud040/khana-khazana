@@ -5,16 +5,16 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <nav>
-      <div className="container flex justify-between py-6">
+      <div className="container flex items-center justify-between py-6">
         <Link href="/">
           <Image
             src={Logo}
             alt="Learn with sumit"
-            className="object-cover h-[54px]"
+            className="object-cover h-[50px]"
           />
         </Link>
 
-        <ul className="flex gap-4 text-sm text-gray-500">
+        <ul className="flex items-center gap-4 text-sm text-gray-500">
           <li className="py-2 active">
             <Link href="./">Home</Link>
           </li>

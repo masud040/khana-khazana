@@ -1,7 +1,7 @@
 import { getAllRecipeName } from "@/db/queries";
 import Link from "next/link";
 
-export default async function RecipeName() {
+export default async function RecipeCategory() {
   const allRecipes = await getAllRecipeName();
 
   return (
