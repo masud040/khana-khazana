@@ -1,4 +1,5 @@
 import replaceMongoIdInArray from "@/utils/replaceMongoIdInArray";
+import replaceMongoIdInObject from "@/utils/replaceMongoIdInObject";
 import RecipesModel from "../model/recipe-model";
 
 async function getAllRecipes() {
@@ -24,4 +25,8 @@ async function getAllRecipeName() {
 
   return replaceMongoIdInArray(recipeNames);
 }
-export { getAllRecipeName, getAllRecipes };
+async function getRecipeById(recipeId) {
+  const recipe = await RecipesModel.findById(recipeId).lean();
+  return replaceMongoIdInObject(recipe);
+}
+export { getAllRecipeName, getAllRecipes, getRecipeById };
