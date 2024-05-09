@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .container {
+    @apply ml-auto mr-auto max-w-[90rem] pl-4 py-4;
+  }
+  .card {
+    @apply max-w-[450px] object-cover;
+  }
+}
