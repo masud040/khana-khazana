@@ -2,7 +2,7 @@ function replaceMongoIdInArray(array) {
   const mappedArray = array
     .map((item) => {
       return {
-        id: item._id.toString(),
+        id: item?._id.toString(),
         ...item,
       };
     })

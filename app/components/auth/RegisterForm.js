@@ -1,4 +1,5 @@
 import { registerUser } from "@/app/actions";
+import Buttton from "../Button";
 
 export default function RegisterForm() {
   return (
@@ -22,12 +23,7 @@ export default function RegisterForm() {
         <input type="password" name="password" id="password" />
       </div>
 
-      <button
-        type="submit"
-        className="bg-[#eb4a36] py-3 rounded-md text-white w-full mt-4"
-      >
-        Create Account
-      </button>
+      <Buttton btnName="Create Account" />
     </form>
   );
 }

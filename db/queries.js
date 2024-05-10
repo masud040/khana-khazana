@@ -38,4 +38,15 @@ async function createUser(user) {
   await connectMongo();
   return await UserModel.create(user);
 }
-export { createUser, getAllRecipeName, getAllRecipes, getRecipeById };
+async function getUserByCredentials(credentials) {
+  await connectMongo();
+  const user = await UserModel.findOne(credentials).lean();
+  return replaceMongoIdInObject(user);
+}
+export {
+  createUser,
+  getAllRecipeName,
+  getAllRecipes,
+  getRecipeById,
+  getUserByCredentials,
+};
