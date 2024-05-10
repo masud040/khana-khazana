@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import connectMongo from "../services/mongo";
 import Navbar from "./components/shared/Navbar";
 import "./globals.css";
+import AuthProvider from "./providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,11 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <Toaster />
-        {children}
+        <AuthProvider>
+          <Navbar />
+          <Toaster />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
