@@ -8,8 +8,9 @@ import AuthProvider from "./providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Khana Khazana",
-  description: "This page is created for sales foods",
+  title: "Khana Khazana - Home",
+  description:
+    "Indulge in Culinary Delights at Khana Khazana - Your Ultimate Destination for Exquisite Home-Cooked Meals! Explore our extensive menu crafted with love and expertise. Order now to experience the perfect blend of flavor, freshness, and convenience. Welcome to a world of deliciousness!",
 };
 
 export default async function RootLayout({ children }) {
