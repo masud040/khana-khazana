@@ -1,14 +1,16 @@
+import { registerUser } from "@/app/actions";
+
 export default function RegisterForm() {
   return (
-    <form className="login-form">
+    <form className="login-form" action={registerUser}>
       <div>
-        <label htmlFor="fname">First Name</label>
-        <input type="text" name="fname" id="fname" />
+        <label htmlFor="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" />
       </div>
 
       <div>
-        <label htmlFor="lname">Last Name</label>
-        <input type="text" name="lname" id="lname" />
+        <label htmlFor="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" />
       </div>
       <div>
         <label htmlFor="email">Email Address</label>

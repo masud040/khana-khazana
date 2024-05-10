@@ -1,8 +1,11 @@
+import { UserModel } from "@/model/user-model";
+import connectMongo from "@/services/mongo";
 import replaceMongoIdInArray from "@/utils/replaceMongoIdInArray";
 import replaceMongoIdInObject from "@/utils/replaceMongoIdInObject";
 import RecipesModel from "../model/recipe-model";
 
 async function getAllRecipes() {
+  await connectMongo();
   const allRecipes = await RecipesModel?.find(
     {},
     { _id: 1, name: 1, description: 1, author: 1, thumbnail: 1, rating: 1 }
@@ -10,6 +13,7 @@ async function getAllRecipes() {
   return replaceMongoIdInArray(allRecipes);
 }
 async function getAllRecipeName() {
+  await connectMongo();
   const allRecipeName = await RecipesModel?.find({}, { category: 1 }).lean();
 
   let recipeNames = [];
@@ -26,7 +30,12 @@ async function getAllRecipeName() {
   return replaceMongoIdInArray(recipeNames);
 }
 async function getRecipeById(recipeId) {
+  await connectMongo();
   const recipe = await RecipesModel.findById(recipeId).lean();
   return replaceMongoIdInObject(recipe);
 }
-export { getAllRecipeName, getAllRecipes, getRecipeById };
+async function createUser(user) {
+  await connectMongo();
+  return await UserModel.create(user);
+}
+export { createUser, getAllRecipeName, getAllRecipes, getRecipeById };
