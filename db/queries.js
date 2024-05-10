@@ -43,10 +43,18 @@ async function getUserByCredentials(credentials) {
   const user = await UserModel.findOne(credentials).lean();
   return replaceMongoIdInObject(user);
 }
+async function getRecipesByCategory(categoryName) {
+  await connectMongo();
+  const recipes = await RecipesModel.find({
+    category: categoryName,
+  }).lean();
+  return replaceMongoIdInArray(recipes);
+}
 export {
   createUser,
   getAllRecipeName,
   getAllRecipes,
   getRecipeById,
+  getRecipesByCategory,
   getUserByCredentials,
 };
