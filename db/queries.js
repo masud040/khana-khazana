@@ -50,6 +50,20 @@ async function getRecipesByCategory(categoryName) {
   }).lean();
   return replaceMongoIdInArray(recipes);
 }
+async function updateFavourites(userId, recipeId) {
+  await connectMongo();
+  const user = await UserModel.findById(userId);
+
+  if (user) {
+    const existRecipe = user.favourites?.find((id) => id === recipeId);
+    if (existRecipe) {
+      user.favourites.pull(recipeId);
+    } else {
+      user.favourites.push(recipeId);
+    }
+  }
+  user.save();
+}
 export {
   createUser,
   getAllRecipeName,
@@ -57,4 +71,5 @@ export {
   getRecipeById,
   getRecipesByCategory,
   getUserByCredentials,
+  updateFavourites,
 };

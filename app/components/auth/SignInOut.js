@@ -3,12 +3,14 @@
 import useAuth from "@/app/hooks/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function SignInOut() {
   const { auth, setAuth } = useAuth();
   const router = useRouter();
   function handleLogout() {
     setAuth(null);
+    toast.success("Logged out successfully!");
     router.push("/login");
   }
   return auth?.email ? (

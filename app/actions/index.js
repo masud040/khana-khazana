@@ -1,6 +1,11 @@
 "use server";
 
-import { createUser, getUserByCredentials } from "@/db/queries";
+import {
+  createUser,
+  getUserByCredentials,
+  updateFavourites,
+} from "@/db/queries";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 async function registerUser(formData) {
@@ -25,4 +30,12 @@ async function performLogin(formData) {
     throw error;
   }
 }
-export { performLogin, registerUser };
+async function handleToggleFavourite(userId, recipeId) {
+  try {
+    await updateFavourites(userId, recipeId);
+    revalidatePath(`/details/${recipeId}`, "page");
+  } catch (error) {
+    throw error;
+  }
+}
+export { handleToggleFavourite, performLogin, registerUser };

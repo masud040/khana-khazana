@@ -40,6 +40,6 @@ const recipeSchema = new Schema({
 });
 
 const RecipesModel =
-  mongoose?.models.recipes ?? mongoose.model("recipes", recipeSchema);
+  mongoose?.models.recipes ?? mongoose?.model("recipes", recipeSchema);
 
 export default RecipesModel;
