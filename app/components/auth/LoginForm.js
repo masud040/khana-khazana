@@ -1,6 +1,7 @@
 "use client";
 
 import { performLogin } from "@/app/actions";
+import useAuth from "@/app/hooks/useAuth";
 import loading from "@/public/assets/loading.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,6 +10,7 @@ import toast from "react-hot-toast";
 export default function LoginForm() {
   const [error, setError] = useState("");
   const [pending, setPending] = useState();
+  const { setAuth } = useAuth();
   const router = useRouter();
   async function handleLogin(event) {
     event.preventDefault();
@@ -18,9 +20,11 @@ export default function LoginForm() {
     const response = await performLogin(formData);
     if (response?.email) {
       setPending(false);
+      setAuth(response);
       toast.success("Login successful!", {
         id: toastId,
       });
+
       router.push("/");
     } else {
       setPending(false);

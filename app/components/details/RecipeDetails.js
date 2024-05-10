@@ -104,7 +104,7 @@ export default function RecipeDetails({ recipeData }) {
             </div>
           </div>
 
-          <ActionButton />
+          <ActionButton recipeId={id} />
         </div>
       </div>
     </section>

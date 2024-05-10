@@ -1,4 +1,6 @@
-export default function ActionButton() {
+"use client";
+export default function ActionButton({ recipeId }) {
+  console.log(recipeId);
   return (
     <div className="flex justify-end gap-4">
       <div className="flex gap-2 text-gray-600 cursor-pointer hover:text-[#eb4a36]">
