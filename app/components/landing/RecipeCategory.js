@@ -10,7 +10,9 @@ export default async function RecipeCategory() {
       <ul className="pl-2 my-6 space-y-4 text-sm text-gray-500">
         {allRecipes?.map((recipe) => (
           <li key={recipe.id}>
-            <Link href="#">{recipe.category}</Link>
+            <Link href={`/recipe/${encodeURI(recipe.category)}`}>
+              {recipe.category}
+            </Link>
           </li>
         ))}
       </ul>
