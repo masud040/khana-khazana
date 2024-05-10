@@ -4,7 +4,7 @@ import { getRecipeById } from "@/db/queries";
 export async function generateMetadata({ params: { recipeId } }) {
   const recipeDetails = await getRecipeById(recipeId);
   return {
-    title: `${"Khana Khazana" - recipeDetails?.name}`,
+    title: `Khana Khazana - ${recipeDetails?.name}`,
     description: recipeDetails?.description,
     openGraph: {
       images: [recipeDetails?.thumbnail],

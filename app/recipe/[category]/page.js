@@ -1,6 +1,13 @@
 import RecipeCard from "@/app/components/landing/RecipeCard";
 import { getRecipesByCategory } from "@/db/queries";
-
+export async function generateMetadata({ params: { category } }) {
+  return {
+    title: `Khana Khazana - ${decodeURIComponent(category)} | Category`,
+    description: `Explore the Finest Culinary Creations at Khana Khazana - Indulge in Delectable ${decodeURIComponent(
+      category
+    )} Dishes! From traditional favorites to innovative delights, our menu offers a tantalizing array of flavors. Experience the essence of [Category] cuisine with every bite. Order now for a culinary journey like no other!`,
+  };
+}
 export default async function RecipeDetails({ params: { category } }) {
   const recipes = await getRecipesByCategory(decodeURIComponent(category));
 
