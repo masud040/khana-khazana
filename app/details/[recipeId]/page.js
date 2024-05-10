@@ -4,11 +4,11 @@ import { getRecipeById } from "@/db/queries";
 
 export default async function RecipeDetailsPage({ params: { recipeId } }) {
   const recipeData = await getRecipeById(recipeId);
-  console.log(recipeData);
+
   return (
     <main>
-      <RecipeDetails />
-      <PurchaseStep />
+      <RecipeDetails recipeData={recipeData} />
+      <PurchaseStep steps={recipeData?.steps} />
     </main>
   );
 }

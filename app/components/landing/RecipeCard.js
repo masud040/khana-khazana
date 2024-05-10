@@ -10,7 +10,7 @@ export default function RecipeCard({ recipe }) {
         <Image
           src={thumbnail}
           className="rounded-md"
-          alt=""
+          alt={name}
           width={400}
           height={400}
         />

@@ -1,14 +1,28 @@
 import Image from "next/image";
 import ActionButton from "../ActionButton";
 
-export default function RecipeDetails() {
+export default function RecipeDetails({ recipeData }) {
+  const {
+    name,
+    description,
+    author,
+    activeTime,
+    totalTime,
+    thumbnail,
+    image,
+    category,
+    serves,
+    rating,
+    id,
+  } = recipeData || {};
+
   return (
     <section>
       <div className="container grid grid-cols-12 gap-8 justify-items-center">
         <div className="col-span-12 md:col-span-6">
           <Image
-            src="https://source.unsplash.com/Zh0mYmMBZjQ/600x600"
-            alt=""
+            src={thumbnail}
+            alt={name}
             className="object-contain w-full h-full rounded-lg"
             width={500}
             height={400}
@@ -16,16 +30,10 @@ export default function RecipeDetails() {
         </div>
         <div className="flex flex-col justify-center col-span-12 py-8 md:col-span-6">
           <h2 className="text-4xl font-semibold leading-10 lg:w-8/12">
-            White calzones with marinara sauce
+            {name}
           </h2>
-          <p className="text-xs text-[#eb4a36] italic my-2">
-            Breakfast and Brunch
-          </p>
-          <p className="my-6 text-sm leading-6 text-gray-600">
-            Supermarket brands of ricotta contain stabilizers, which can give
-            the cheese a gummy texture when baked. Check the label and choose
-            ricotta made with as few ingredients as possible.
-          </p>
+          <p className="text-xs text-[#eb4a36] italic my-2">{category}</p>
+          <p className="my-6 text-sm leading-6 text-gray-600">{description}</p>
 
           <div className="flex justify-center gap-4 my-12 divide-x">
             <div className="flex-1 text-center">
@@ -48,7 +56,7 @@ export default function RecipeDetails() {
               <h3 className="mt-2 text-lg font-medium text-gray-700">
                 Prep time
               </h3>
-              <p className="text-sm text-gray-500">30 minutes</p>
+              <p className="text-sm text-gray-500">{activeTime}</p>
             </div>
             <div className="flex-1 text-center">
               <svg
@@ -71,7 +79,7 @@ export default function RecipeDetails() {
               <h3 className="mt-2 text-lg font-medium text-gray-700">
                 Cook time
               </h3>
-              <p className="text-sm text-gray-500">1 hour</p>
+              <p className="text-sm text-gray-500">{totalTime}</p>
             </div>
             <div className="flex-1 text-center">
               <svg
@@ -95,7 +103,7 @@ export default function RecipeDetails() {
               <h3 className="mt-2 text-lg font-medium text-gray-700">
                 Servings
               </h3>
-              <p className="text-sm text-gray-500">4</p>
+              <p className="text-sm text-gray-500">{serves}</p>
             </div>
           </div>
 

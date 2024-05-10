@@ -1,4 +1,4 @@
-export default function PurchaseStep() {
+export default function PurchaseStep({ steps }) {
   return (
     <section>
       <div class="container py-12">
