@@ -5,27 +5,24 @@ export default function RecipeDetails({ recipeData }) {
   const {
     name,
     description,
-    author,
     activeTime,
     totalTime,
     thumbnail,
-    image,
     category,
     serves,
-    rating,
     id,
   } = recipeData || {};
 
   return (
     <section>
       <div className="container grid grid-cols-12 gap-8 justify-items-center">
-        <div className="col-span-12 md:col-span-6">
+        <div className="col-span-12 md:col-span-6 ">
           <Image
             src={thumbnail}
             alt={name}
-            className="object-contain w-full h-full rounded-lg"
-            width={500}
-            height={400}
+            className="object-cover w-full h-full rounded-lg"
+            width={600}
+            height={600}
           />
         </div>
         <div className="flex flex-col justify-center col-span-12 py-8 md:col-span-6">

@@ -11,9 +11,18 @@
   }
 
   .step h3 {
-    @apply mt-4 mb-4 leading-7 font-light text-lg uppercase tracking-wider opacity-100 text-[#FF8080];
+    @apply mt-4 mb-3 leading-7 font-light text-lg uppercase tracking-wider opacity-100 text-[#FF8080];
   }
   .step p {
-    @apply mb-6 ml-8 leading-8 text-gray-500;
+    @apply mb-5 ml-8 leading-8 text-gray-500;
+  }
+  .login-form {
+    @apply flex flex-col mt-6 mb-6;
+  }
+  .login-form div {
+    @apply flex flex-col gap-2 mt-2 mb-2;
+  }
+  .login-form input {
+    @apply border-[1px] rounded-md border-gray-300 pl-4 pr-4 pt-2 pb-2;
   }
 }

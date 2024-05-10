@@ -16,7 +16,7 @@ export default function Navbar() {
 
         <ul className="flex items-center gap-4 text-sm text-gray-500">
           <li className="py-2 active">
-            <Link href="./">Home</Link>
+            <Link href="/">Home</Link>
           </li>
 
           <li className="py-2">
