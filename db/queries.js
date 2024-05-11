@@ -6,6 +6,7 @@ import RecipesModel from "../model/recipe-model";
 
 async function getAllRecipes() {
   await connectMongo();
+
   const allRecipes = await RecipesModel?.find(
     {},
     { _id: 1, name: 1, description: 1, author: 1, thumbnail: 1, rating: 1 }
