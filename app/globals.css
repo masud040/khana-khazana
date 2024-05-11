@@ -26,3 +26,17 @@
     @apply border-[1px] rounded-md border-gray-300 pl-4 pr-4 pt-2 pb-2;
   }
 }
+
+@layer utilities {
+  .modal {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 75%,
+      80% 75%,
+      78% 84%,
+      66% 76%,
+      0% 75%
+    );
+  }
+}

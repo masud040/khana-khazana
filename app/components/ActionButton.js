@@ -6,7 +6,7 @@ import { handleToggleFavourite, performLogin } from "../actions";
 import useAuth from "../hooks/useAuth";
 import SocialShareModal from "./modal/SocailShareModal";
 
-export default function ActionButton({ recipeId }) {
+export default function ActionButton({ recipeId, name }) {
   const { auth, setAuth } = useAuth();
   const isFavourite = auth?.favourites?.find((id) => id === recipeId);
   const [favourite, setFavourite] = useState(isFavourite);
@@ -55,7 +55,7 @@ export default function ActionButton({ recipeId }) {
           </svg>
           <span>Favourite</span>
         </button>
-        {showModal && <SocialShareModal />}
+        {showModal && <SocialShareModal recipeName={name} />}
         <button
           onClick={() => setShowModal((s) => !s)}
           className="flex gap-2 border border-gray-300 rounded-md p-1 text-gray-600 cursor-pointer hover:text-[#0E79F6]"
