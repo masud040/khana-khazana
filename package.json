@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "mongoose": "^8.3.4",
     "next": "14.2.3",
     "next-share": "^0.27.0",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "eslint": "^8",

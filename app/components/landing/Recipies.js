@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import Loading from "../Loading";
 import RecipeCategory from "./RecipeCategory";
 import RecipeList from "./RecipeList";
 
@@ -6,7 +8,10 @@ export default function Recipes() {
     <section className="container py-8">
       <div className="grid grid-cols-12 py-4">
         <RecipeCategory />
-        <RecipeList />
+
+        <Suspense fallback={<Loading />}>
+          <RecipeList />
+        </Suspense>
       </div>
     </section>
   );

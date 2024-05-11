@@ -1,7 +1,8 @@
+import { getImageBlur } from "@/utils/generateBuffer";
 import Image from "next/image";
 import ActionButton from "../ActionButton";
 
-export default function RecipeDetails({ recipeData }) {
+export default async function RecipeDetails({ recipeData }) {
   const {
     name,
     description,
@@ -12,7 +13,7 @@ export default function RecipeDetails({ recipeData }) {
     serves,
     id,
   } = recipeData || {};
-
+  const { base64 } = await getImageBlur(thumbnail);
   return (
     <section>
       <div className="container grid grid-cols-12 gap-8 justify-items-center">
@@ -23,6 +24,8 @@ export default function RecipeDetails({ recipeData }) {
             className="object-cover w-full h-full rounded-lg"
             width={600}
             height={600}
+            placeholder="blur"
+            blurDataURL={base64}
           />
         </div>
         <div className="flex flex-col justify-center col-span-12 py-8 md:col-span-6">

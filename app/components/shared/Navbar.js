@@ -13,7 +13,7 @@ export default function Navbar() {
           <Image
             src={Logo}
             alt="Learn with sumit"
-            className="object-cover h-[50px]"
+            className="object-contain h-[50px]"
           />
         </Link>
 

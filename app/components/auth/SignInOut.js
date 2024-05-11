@@ -16,13 +16,13 @@ export default function SignInOut() {
   return auth?.email ? (
     <li
       onClick={handleLogout}
-      className="py-2 bg-[#eb4a36] px-6 rounded-md text-white content-center"
+      className="py-2 bg-[#eb4a36] px-4 rounded-md text-white content-center"
     >
       <button>Logout</button>
     </li>
   ) : (
     <Link href="/login">
-      <li className="py-2 bg-[#eb4a36] px-6 rounded-md text-white content-center">
+      <li className="py-2 bg-[#eb4a36] px-4 rounded-md text-white content-center">
         Login
       </li>
     </Link>

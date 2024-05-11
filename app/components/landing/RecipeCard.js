@@ -1,18 +1,22 @@
+import { getImageBlur } from "@/utils/generateBuffer";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function RecipeCard({ recipe }) {
+export default async function RecipeCard({ recipe }) {
   const { id, name, description, author, thumbnail, rating } = recipe || {};
+  const { base64 } = await getImageBlur(thumbnail);
 
   return (
     <Link href={`/details/${id}`}>
       <div className="card">
         <Image
           src={thumbnail}
-          className="rounded-md"
+          className="rounded-md "
           alt={name}
           width={400}
           height={400}
+          placeholder="blur"
+          blurDataURL={base64}
         />
 
         <h4 className="my-2">{name}</h4>
